@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; 
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #eae3e3;
+            background-image: url("picture/background5.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            overflow-x: hidden;
+        }
+
+        .header {
+            text-align: center; 
+            padding: 20px;
+            margin-top: 3%;
+            font-size: 60px;
+            font-weight: bold;
+            font-style: oblique;
+            color: #fff; 
+        }
+
+        nav {
+            background: linear-gradient(45deg, #00bcd4, #003d79);
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(223, 220, 220, 0.5);
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-radius: 8px;
+            margin-top: 3px;
+        }
+
+        nav a {
+            color: #e9e1e1;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 600;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #fff;
+            background-color: #40d2ff;
+            transform: translateY(-5px);
+        }
+
+        .collage {
+            margin-top: 100px; 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; 
+            padding: 0 40px; 
+        }
+
+        .collage div {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .collage div:hover {
+            transform: scale(1.05);
+        }
+
+        .collage img {
+            width: 100%;
+            height: auto;
+            border: 5px solid #00bcd4;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .collage img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .collage h3 {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .video-section {
+            margin: 50px 0; 
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 800px; 
+            position: relative;
+            aspect-ratio: 16 / 9; 
+            overflow: hidden;
+            border: 5px solid #00bcd4;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-container video:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem; 
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 10px;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #e9e6e6;
+            background-image: url("picture/background5.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            overflow-x: hidden;
+        }
+
+        .footer h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            font-size: 1rem;
+            color: #f1eeee;
+            margin: 5px 0;
+        }
+
+        .archived {
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .credit {
+            font-size: 16px;
+            font-style: oblique;
+            color: #020311;
+            margin-top: 10px;
+        }       
+
+        .footer h2 {
+            background: linear-gradient(45deg, #00bcd4, #003d79);
+            color: white;
+            text-align: center;
+            font-style: oblique;
+            padding: 30px;
+            font-weight: normal;
+            font-size: 1.2rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (max-width: 1600px) {
+            .collage {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .collage {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            }
+
+            .video-title {
+                font-size: 1.8rem; 
+            }
+
+            .video-container {
+                max-width: 700px; 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .collage {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+            }
+
+            .video-container {
+                max-width: 100%; /
+            }
+
+            .video-title {
+                font-size: 1.5rem; 
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="home.html" target="_blank">Home</a>
+        <a href="about.html" target="_blank">About</a>
+        <a href="family.html" target="_blank">Family</a>
+        <a href="skills.html" target="_blank">Skills</a>
+        <a href="gallery.html" target="_blank">Gallery</a>
+        <a href="song.html" target="_blank">Song</a>
+        <a href="contact.html" target="_blank">Contact</a>
+    </nav>
+    
+    <div class="header">
+        <div class="title">My Gallery</div>
+    </div>
+
+    <div class="collage">
+        <div>
+            <h3>Photo 1</h3>
+            <img src="picture/photo1.jpg" alt="Photo 1">
+        </div>
+        <div>
+            <h3>Photo 2</h3>
+            <img src="picture/photo2.jpg" alt="Photo 2">
+        </div>
+        <div>
+            <h3>Photo 3</h3>
+            <img src="picture/photo3.jpg" alt="Photo 3">
+        </div>
+        <div>
+            <h3>Photo 4</h3>
+            <img src="picture/photo4.jpg" alt="Photo 4">
+        </div>
+        <div>
+            <h3>Photo 5</h3>
+            <img src="picture/photo5.jpg" alt="Photo 5">
+        </div>
+        <div>
+            <h3>Photo 6</h3>
+            <img src="picture/photo6.jpg" alt="Photo 6">
+        </div>
+        <div>
+            <h3>Photo 7</h3>
+            <img src="picture/photo7.jpg" alt="Photo 7">
+        </div>
+        <div>
+            <h3>Photo 8</h3>
+            <img src="picture/photo8.jpg" alt="Photo 8">
+        </div>
+        <div>
+            <h3>Photo 9</h3>
+            <img src="picture/photo9.jpg" alt="Photo 9">
+        </div>
+        <div>
+            <h3>Photo 10</h3>
+            <img src="picture/photo10.jpg" alt="Photo 10">
+        </div>
+    </div>
+
+    <div class="video-section">
+        <h2 class="video-title">My Favorite Video</h2>
+        <div class="video-container">
+            <video controls autoplay loop>
+                <source src="videos/video2.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="archived">"Hope you all enjoy"</div>
+        <div class="date">28 Februari 2023 - 2024</div>
+        <h1>"This is my memories"</h1>
+        <p>59 / 365</p>
+        <p>Tidak terasa sudah di akhir bulan<br>
+           sepertinya baru kelmarin awal bulan<br>
+           kenapa sekarang sudah berakhir</p>
+        <div class="credit"><strong>Quote by Fadhil</strong></div>
+        <h2>&copy;2024 Udil All Rights Reserved.</h2>
+    </div>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image: url("picture/background3.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: #333;
+            overflow-x: hidden;
+            animation: fadeIn 1.5s ease-in-out;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: rgba(179, 215, 245, 0.9); 
+            color: #2181e1; 
+            text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        header h1 {
+            font-size: 5rem;
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.4rem;
+            font-style: italic;
+            font-family: 'Times New Roman', Times, serif;
+            color: #333;
+        }
+
+        nav {
+            background: linear-gradient(45deg, #00bcd4, #003d79);
+            padding: 15px;
+            box-shadow: 0 4px 10px rgb(223, 220, 220);
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-radius: 8px;
+            margin-top: 0px;
+        }
+
+        nav a {
+            color: #e9e1e1;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #fff;
+            background-color: #21c2de;
+            transform: translateY(-5px);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #21c2de;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .family-member {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .family-member:last-child {
+            border-bottom: none;
+        }
+
+        .family-member:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .family-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 1.5rem;
+            border: 3px solid #64b5f6;
+            transition: border 0.3s;
+        }
+
+        .family-member img:hover {
+            border-color: #42a5f5;
+        }
+
+        .family-member .details {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .family-member h2 {
+            margin-bottom: 0.5rem;
+            color: #1976d2;
+            font-size: 1.8rem;
+        }
+
+        .family-member p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        footer {
+            background: linear-gradient(45deg, #00bcd4, #003d79);
+            color: white;
+            text-align: center;
+            font-style: oblique;
+            padding: 30px;
+            font-size: 1.2rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .family-member {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .family-member img {
+                margin: 0 auto 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="home.html" target="_blank">Home</a>
+        <a href="about.html" target="_blank">About</a>
+        <a href="family.html" target="_blank">Family</a>
+        <a href="skills.html" target="_blank">Skills</a>
+        <a href="gallery.html" target="_blank">Gallery</a>
+        <a href="song.html" target="_blank">Song</a>
+        <a href="contact.html" target="_blank">Contact</a>
+    </nav>
+
+    <header>
+        <h1>My Family</h1>
+        <p>"A brief introduction to the people I love the most!"</p>
+    </header>
+
+    <div class="container">
+        <div class="family-member">
+            <img src="picture/me.jpg" alt="Me">
+            <div class="details">
+                <h2>Me</h2>
+                <p>My name is Muhammad Fadhil Bin Zuhaimi. I am 20 years old and I am a student at UiTM Machang. I am the narrator of this story, sharing the beautiful journey of my family. Passionate about making memories and cherishing moments with them.</p>
+            </div>
+        </div>
+
+        <div class="family-member">
+            <img src="picture/father.jpg" alt="Father">
+            <div class="details">
+                <h2>Father</h2>
+                <p>My father's name is Zuhaimi Bin AB. Kadir. He is 54 years old and works as a contractor at Tenaga Nasional Berhad (TNB) in Kuala Lumpur. My father is the backbone of our family. He is a hardworking individual who always inspires us with his dedication and wisdom.</p>
+            </div>
+        </div>
+
+        <div class="family-member">
+            <img src="picture/mother.jpg" alt="Mother">
+            <div class="details">
+                <h2>Mother</h2>
+                <p>My mother's name is Roslina Binti Hj. Omar. She is 54 years old and works as a primary school teacher at Sekolah Rendah Kebangsaan Buloh Poh. My mother is the heart of our home. She is a loving, caring person who brings warmth and joy to our family.</p>
+            </div>
+        </div>
+
+        <div class="family-member">
+            <img src="picture/siblings.jpg" alt="Sibling">
+            <div class="details">
+                <h2>Sibling</h2>
+                <p>My sister's name is Natasha Amira Binti Zuhaimi. She is 26 years old and works as staff at Jabatan Kerja Raya (JKR) in Kota Bharu, Kelantan. My sibling is my closest companion and a source of endless fun and support. We share an unbreakable bond.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Udil. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>
